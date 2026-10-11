@@ -1,4 +1,5 @@
 ---
+name: project-notes
 description: Summarizes the current git state of the project (branch, uncommitted changes, recent commits). Use when the user asks what changed or where the work stands.
 ---
 
