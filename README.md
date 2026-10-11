@@ -28,6 +28,17 @@ tom-code/
 └── README.md
 ```
 
+## Usage
+
+Load the plugin for one session with `--plugin-dir`, from any project directory:
+
+```
+cd /path/to/other-project
+claude --plugin-dir /path/to/tom-code
+```
+
+The plugin is active only for that session. Repeat the flag to load several plugins:
+`claude --plugin-dir /path/to/tom-code --plugin-dir /path/to/other-plugin`.
 
 ## Features
 1. Disable the attribution trailer in the commit message to save tokens.
