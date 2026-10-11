@@ -1,0 +1,9 @@
+{
+  "name": "tom-helper",
+  "version": "0.1.0",
+  "description": "Prototype plugin: a skill, a slash command, a subagent, and a hook",
+  "author": {
+    "name": "TomTseng"
+  },
+  "license": "MIT"
+}
