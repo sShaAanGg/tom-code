@@ -1,7 +1,7 @@
 {
-  "name": "tom-helper",
+  "name": "tom-code",
   "version": "0.1.0",
-  "description": "Prototype plugin: a skill, a slash command, a subagent, and a hook",
+  "description": "Prototype plugin: some helpers for coding with Claude",
   "author": {
     "name": "TomTseng"
   },
