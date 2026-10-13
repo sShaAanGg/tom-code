@@ -1,7 +1,7 @@
 {
   "name": "tom-code",
   "version": "0.1.0",
-  "description": "Prototype plugin: some helpers for coding with Claude",
+  "description": "A simple plugin: some helpers for coding with Claude",
   "author": {
     "name": "TomTseng"
   },
