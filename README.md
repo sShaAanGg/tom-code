@@ -42,4 +42,5 @@ The plugin is active only for that session. Repeat the flag to load several plug
 
 ## Features
 1. Disable the attribution trailer in the commit message to save tokens.
-2. 
+  - Not stable. Sometimes the model still append the trail message 
+3. 
