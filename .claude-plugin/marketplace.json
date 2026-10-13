@@ -1,6 +1,6 @@
 {
   "name": "tom-code",
-  "owner": { "name": "Tom" },
+  "owner": { "name": "Tom Tseng" },
   "plugins": [
     { "name": "tom-code", "source": "./" }
   ]
