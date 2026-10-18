@@ -41,6 +41,6 @@ The plugin is active only for that session. Repeat the flag to load several plug
 `claude --plugin-dir /path/to/tom-code --plugin-dir /path/to/other-plugin`.
 
 ## Features
-1. Disable the attribution trailer in the commit message to save tokens.
-  - Not stable. Sometimes the model still append the trail message 
-3. 
+1. Disable the attribution trailer in the commit message to save tokens.  
+    a. Not stable. Sometimes the model still append the trail message
+2. 
