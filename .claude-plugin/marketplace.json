@@ -3,5 +3,6 @@
   "owner": { "name": "Tom Tseng" },
   "plugins": [
     { "name": "tom-code", "source": "./" }
-  ]
+  ],
+  "description": "Coding assistant plugin with built-in tutor and leetcode modes"
 }

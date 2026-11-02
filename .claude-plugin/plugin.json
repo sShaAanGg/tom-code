@@ -1,9 +1,9 @@
 {
   "name": "tom-code",
   "version": "0.1.0",
-  "description": "A simple plugin: some helpers for coding with Claude",
+  "description": "Coding assistant plugin with built-in tutor and leetcode modes",
   "author": {
-    "name": "TomTseng"
+    "name": "Tom Tseng"
   },
   "license": "MIT"
 }
