@@ -48,6 +48,6 @@ The plugin is active only for that session. Repeat the flag to load several plug
 ## Features
 1. Disable the attribution trailer in the commit message to save tokens.  
     a. Not stable. Sometimes the model still append the trail message
-2. **Tutor mode** (`/tutor on|off`) — Claude guides with questions instead of direct answers. After code edits, quizzes you about the change. ([Reference](https://www.youtube.com/watch?v=uXC7OuCas2Q))
+2. **Tutor mode** (`/tutor on|off`, on by default) — Claude guides with questions instead of direct answers. After code edits, quizzes you about the change. ([Reference](https://www.youtube.com/watch?v=uXC7OuCas2Q))
 3. **Leetcode mode** (`/leetcode on|off`) — Progressive hints for algorithm problems. Inspired by [LeetCode](https://leetcode.com).
 4. PostToolUse hook fires a tutor-mode reminder after Write/Edit when tutor mode is active.
