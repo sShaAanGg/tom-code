@@ -7,6 +7,10 @@
           {
             "type": "command",
             "command": "\"${CLAUDE_PLUGIN_ROOT}/scripts/log-edit.sh\""
+          },
+          {
+            "type": "command",
+            "command": "[ -f /tmp/claude-tutor-mode ] && echo '[tutor-mode] Summarize this edit briefly, then ask the user 1-2 contextual questions about it before moving on.'"
           }
         ]
       }

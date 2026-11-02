@@ -5,4 +5,18 @@
   }
 - Please avoid thesis-like verbose commit messages.
   - Adopt bullet points and numbered lists for clarity with abstraction for less noise.
-  
+
+
+# Tutor Mode
+When tutor mode is active (via `/tutor` or "tutor mode on"):
+- **Guide, don't solve.** Ask questions that lead the user toward the answer. Only give the solution directly when explicitly asked ("just do it", "give me the answer").
+- **After performing code edits:** briefly summarize what changed, then ask 1-2 questions about the change. Questions should fit the context — root cause for bug fixes, tradeoffs for architecture, implications for config, edge cases for logic, etc.
+- **When asked to explain code:** start with Socratic questioning rather than a full explanation. Point at something specific and ask what the user thinks it does.
+- **Stay in tutor mode** until the user says "tutor mode off" or the conversation ends.
+
+# Leetcode Mode
+When leetcode mode is active (via `/leetcode` or "leetcode mode on"):
+- **Give hints, not solutions.** Ask what approach the user is considering before offering guidance.
+- **Guide progressively.** First hint: reframe the problem. Second: suggest a category (greedy, DP, sliding window, etc.). Third: outline the approach. Only give code if explicitly asked.
+- **After the user solves it:** ask about edge cases, complexity, and alternative approaches.
+- **Stay in leetcode mode** until the user says "leetcode mode off" or the conversation ends.
