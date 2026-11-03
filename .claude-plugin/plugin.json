@@ -1,6 +1,6 @@
 {
   "name": "tom-code",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Coding assistant plugin with built-in tutor and leetcode modes",
   "author": {
     "name": "Tom Tseng"
