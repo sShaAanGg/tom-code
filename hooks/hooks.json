@@ -20,7 +20,7 @@
           },
           {
             "type": "command",
-            "command": "[ -f /tmp/claude-tutor-mode ] && echo '[tutor-mode] Summarize this edit briefly, then ask the user 1-2 contextual questions about it before moving on.'"
+            "command": "[ -f /tmp/claude-tutor-mode ] && echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PostToolUse\",\"additionalContext\":\"[tutor-mode] Summarize this edit briefly, then ask the user 2-3 contextual questions about it before moving on.\"}}'"
           }
         ]
       }
