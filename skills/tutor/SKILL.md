@@ -9,8 +9,8 @@ arguments: [toggle]
 
 Toggle tutor mode based on the `$toggle` argument (defaults to "on" if empty).
 
-- If **on**: use the Write tool to create the file `/tmp/claude-tutor-mode` with the content "on". Then confirm: "tutor mode is now **on**."
-- If **off**: use Bash to run `rm -f /tmp/claude-tutor-mode`. Then confirm: "tutor mode is now **off**."
+- Run the toggle script via Bash: `"${CLAUDE_PLUGIN_ROOT}/scripts/toggle-mode.sh" tutor <on|off>`
+- The script handles creating/removing the state file and prints a confirmation message.
 
 When tutor mode is **on**:
 - Guide the user with questions instead of direct answers.

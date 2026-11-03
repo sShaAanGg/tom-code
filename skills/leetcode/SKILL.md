@@ -9,8 +9,8 @@ arguments: [toggle]
 
 Toggle leetcode mode based on the `$toggle` argument (defaults to "on" if empty).
 
-- If **on**: use the Write tool to create the file `/tmp/claude-leetcode-mode` with the content "on". Then confirm: "leetcode mode is now **on**."
-- If **off**: use Bash to run `rm -f /tmp/claude-leetcode-mode`. Then confirm: "leetcode mode is now **off**."
+- Run the toggle script via Bash: `"${CLAUDE_PLUGIN_ROOT}/scripts/toggle-mode.sh" leetcode <on|off>`
+- The script handles creating/removing the state file and prints a confirmation message.
 
 When leetcode mode is **on**:
 - Give hints, not solutions. Ask the user about their approach first.

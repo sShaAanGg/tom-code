@@ -4,7 +4,9 @@
 
 MODE="$1"
 TOGGLE="${2:-on}"
-FLAG="/tmp/claude-${MODE}-mode"
+STATE_DIR="${CLAUDE_PLUGIN_ROOT:-.}/.state"
+mkdir -p "$STATE_DIR"
+FLAG="${STATE_DIR}/claude-${MODE}-mode"
 
 case "$TOGGLE" in
   on)
