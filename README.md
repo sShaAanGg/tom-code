@@ -47,7 +47,7 @@ The plugin is active only for that session. Repeat the flag to load several plug
 `claude --plugin-dir /path/to/tom-code --plugin-dir /path/to/other-plugin`.
 
 ## Features
-1. Disable the attribution trailer in the commit message to save tokens.  
+1. Disable the attribution trailer in the commit message, and tell the model to avoid extremely verbose commit messages to save tokens.  
     a. Not stable. Sometimes the model still append the trail message
 2. **Tutor mode** (`/tutor on|off`, on by default) — Claude guides with questions instead of direct answers. After code edits, quizzes you about the change. ([Reference](https://www.youtube.com/watch?v=uXC7OuCas2Q))
 3. **Leetcode mode** (`/leetcode on|off`) — Progressive hints for algorithm problems. Inspired by [LeetCode](https://leetcode.com).

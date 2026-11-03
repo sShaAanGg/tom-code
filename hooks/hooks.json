@@ -16,10 +16,6 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/scripts/log-edit.sh\""
-          },
-          {
-            "type": "command",
             "command": "[ -f \"${CLAUDE_PLUGIN_ROOT}/.state/claude-tutor-mode\" ] && echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PostToolUse\",\"additionalContext\":\"[tutor-mode] Summarize this edit briefly, then ask the user 2-3 contextual questions about it before moving on.\"}}'"
           }
         ]
