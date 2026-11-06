@@ -27,8 +27,12 @@ tom-code/
 │   │   └── SKILL.md        # `/tutor on|off`: Socratic tutor mode
 │   ├── leetcode/
 │   │   └── SKILL.md        # `/leetcode on|off`: progressive hints for problems
-│   └── project-notes/
-│       └── SKILL.md        # `project-notes` skill: summarizes git state
+│   ├── project-notes/
+│   │   └── SKILL.md        # `project-notes` skill: summarizes git state
+│   ├── changemap/
+│   │   └── SKILL.md        # `/changemap [chat|md] [ref]`: annotated change summary
+│   └── tracesupport/
+│       └── SKILL.md        # `/tracesupport [chat|md] [ref]`: data/control flow walkthrough
 ├── AGENTS.md               # Project instructions (imported by CLAUDE.md)
 ├── CLAUDE.md               # Claude Code project instructions
 └── README.md
@@ -49,6 +53,9 @@ The plugin is active only for that session. Repeat the flag to load several plug
 ## Features
 1. Disable the attribution trailer in the commit message, and tell the model to avoid extremely verbose commit messages to save tokens.  
     a. Not stable. Sometimes the model still append the trail message
-2. **Tutor mode** (`/tutor on|off`, on by default) — Claude guides with questions instead of direct answers. After code edits, quizzes you about the change. ([Reference](https://www.youtube.com/watch?v=uXC7OuCas2Q))
+2. **Tutor mode** (`/tutor on|off`, on by default) — Claude guides with questions instead of direct answers. After code edits, quizzes you about the change. ([Reference](https://www.youtube.com/watch?v=uXC7OuCas2Q))  
+    a. PostToolUse hook fires a tutor-mode reminder after Write/Edit when tutor mode is active.
 3. **Leetcode mode** (`/leetcode on|off`) — Progressive hints for algorithm problems. Inspired by [LeetCode](https://leetcode.com).
-4. PostToolUse hook fires a tutor-mode reminder after Write/Edit when tutor mode is active.
+4. **Commit change map** — For `feat`/`fix`/`perf` commits, the commit body includes a map of what changed: core logic vs. wiring, where to start reading.
+5. **Change map** (`/changemap [chat|md] [commit-ref]`) — On-demand annotated summary of changes. Labels files as core logic, wiring/config, boilerplate, or trivial.
+6. **Trace support** (`/tracesupport [chat|md] [commit-ref]`) — Walks through data/control flow with concrete examples and flow charts (ASCII in chat, Mermaid in md).

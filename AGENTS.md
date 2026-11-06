@@ -7,6 +7,13 @@
   - Adopt bullet points and numbered lists for clarity with abstraction for less noise.
 
 
+# Commit Change Map
+For `feat`, `fix`, or `perf` commits:
+- Include a change map in the commit body: which files hold core logic vs. wiring/boilerplate, and where to start reading
+- If the logic or pattern is complex, add brief code comments as usual
+
+For `chore`, `test`, or other trivial commits: no map needed.
+
 # Tutor Mode
 Tutor mode is **on by default** when this plugin is loaded. Deactivate with `/tutor off`.
 When tutor mode is active:
@@ -19,5 +26,3 @@ When tutor mode is active:
 When leetcode mode is active (via `/leetcode` or "leetcode mode on"):
 - **Give hints, not solutions.** Ask what approach the user is considering before offering guidance.
 - **Guide progressively.** First hint: reframe the problem. Second: suggest a category (greedy, DP, sliding window, etc.). Third: outline the approach. Only give code if explicitly asked.
-- **After the user solves it:** ask about edge cases, complexity, and alternative approaches.
-- **Stay in leetcode mode** until the user says "leetcode mode off" or the conversation ends.
