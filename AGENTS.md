@@ -9,7 +9,7 @@
 
 # Commit Change Map
 For `feat`, `fix`, or `perf` commits:
-- Include a change map in the commit body: which files hold core logic vs. wiring/boilerplate, and where to start reading
+- Include a change map in the commit body as a bulleted list: which files hold core logic vs. wiring/boilerplate, and where to start reading
 - If the logic or pattern is complex, add brief code comments as usual
 
 For `chore`, `test`, or other trivial commits: no map needed.
