@@ -54,7 +54,9 @@ The plugin is active only for that session. Repeat the flag to load several plug
 1. Disable the attribution trailer in the commit message, and tell the model to avoid extremely verbose commit messages to save tokens.  
     a. Not stable. Sometimes the model still append the trail message
 2. **Tutor mode** (`/tutor on|off`, on by default) — Claude guides with questions instead of direct answers. After code edits, quizzes you about the change. ([Reference](https://www.youtube.com/watch?v=uXC7OuCas2Q))  
-    a. PostToolUse hook fires a tutor-mode reminder after Write/Edit when tutor mode is active.
+    a. PostToolUse hook fires a tutor-mode reminder after Write/Edit when tutor mode is active.  
+    b. Sometimes I feel the mode is a bit too harsh to work in, but maybe it's actually helpful for learning.  
+    c. This will likely cause you to spend MORE time & credits on the task, so use with caution.
 3. **Leetcode mode** (`/leetcode on|off`) — Progressive hints for algorithm problems. Inspired by [LeetCode](https://leetcode.com).
 4. **Commit change map** — For `feat`/`fix`/`perf` commits, the commit body includes a map of what changed: core logic vs. wiring, where to start reading.
 5. **Change map** (`/changemap [chat|md] [commit-ref]`) — On-demand annotated summary of changes. Labels files as core logic, wiring/config, boilerplate, or trivial.
