@@ -10,13 +10,23 @@
         ]
       }
     ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/scripts/toggle-mode.sh\" all off"
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
       {
         "matcher": "Write|Edit",
         "hooks": [
           {
             "type": "command",
-            "command": "[ -f \"${CLAUDE_PLUGIN_ROOT}/.state/claude-tutor-mode\" ] && echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PostToolUse\",\"additionalContext\":\"[tutor-mode] Summarize this edit briefly, then ask the user 2-3 contextual questions about it before moving on.\"}}'"
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/scripts/toggle-mode.sh\" tutor status && echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PostToolUse\",\"additionalContext\":\"[tutor-mode] Summarize this edit briefly, then ask the user 2-3 contextual questions about it before moving on.\"}}' || true"
           }
         ]
       }

@@ -22,9 +22,9 @@ tom-code/
 │   ├── commit-msg          # Git hook: strips Claude Co-Authored-By trailers
 │   └── pre-commit          # Git hook: warns when this README tree drifts from tracked files
 ├── hooks/
-│   └── hooks.json          # Hook config: SessionStart (tutor on), PostToolUse on Write|Edit
+│   └── hooks.json          # Hook config: SessionStart (tutor on), SessionEnd (clear flags), PostToolUse on Write|Edit
 ├── scripts/
-│   └── toggle-mode.sh      # Toggle tutor/leetcode mode via flag file in ${CLAUDE_PLUGIN_ROOT}/.state/
+│   └── toggle-mode.sh      # Per-session tutor/leetcode flags in ${CLAUDE_PLUGIN_ROOT}/.state/
 ├── skills/
 │   ├── tutor/
 │   │   └── SKILL.md        # `/tutor on|off`: Socratic tutor mode
