@@ -10,6 +10,7 @@ Requires Claude Code 2.1.275+.
 ```
 tom-code/
 ├── .claude-plugin/
+│   ├── marketplace.json    # Marketplace listing for `/plugin install`
 │   └── plugin.json         # Plugin manifest (name, version, author)
 ├── .claude/
 │   └── settings.json       # Project settings (default permission mode: acceptEdits)
@@ -18,7 +19,8 @@ tom-code/
 ├── commands/
 │   └── status.md           # `/status` slash command: one-line repo status
 ├── githooks/
-│   └── commit-msg          # Git hook: strips Claude Co-Authored-By trailers
+│   ├── commit-msg          # Git hook: strips Claude Co-Authored-By trailers
+│   └── pre-commit          # Git hook: warns when this README tree drifts from tracked files
 ├── hooks/
 │   └── hooks.json          # Hook config: SessionStart (tutor on), PostToolUse on Write|Edit
 ├── scripts/

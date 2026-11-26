@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Warn (never block) when README's "Project Structure" tree drifts from tracked files.
+set -euo pipefail
+
+# Files intentionally left out of the README tree.
+IGNORE='^(LICENSE|\.gitignore)$'
+
+root="$(git rev-parse --show-toplevel)"
+readme="$root/README.md"
+[ -f "$readme" ] || exit 0
+
+# Extract file paths from the tree: normalize box-drawing chars to ASCII so
+# each nesting level is exactly 4 columns, then rebuild paths from a depth stack.
+readme_files="$(
+  LC_ALL=C awk '/^## Project Structure/{f=1} f&&/^```/{c++; if(c==2) exit; next} f&&c==1' "$readme" |
+  LC_ALL=C sed 's/│/|/g; s/├──/+--/; s/└──/+--/' |
+  LC_ALL=C awk '/\+-- /{
+    i = index($0, "+-- "); d = (i - 1) / 4; n = substr($0, i + 4)
+    sub(/[ \t]+#.*/, "", n); sub(/[ \t]+$/, "", n)
+    stack[d] = n; p = ""
+    for (k = 0; k <= d; k++) p = p stack[k]
+    if (n !~ /\/$/) print p
+  }' | sort -u
+)"
+
+# Index = what this commit will contain.
+tracked_files="$(git ls-files | grep -Ev "$IGNORE" | sort -u)"
+
+missing="$(comm -23 <(echo "$readme_files") <(echo "$tracked_files"))"
+unlisted="$(comm -13 <(echo "$readme_files") <(echo "$tracked_files"))"
+
+if [ -n "$missing" ] || [ -n "$unlisted" ]; then
+  echo "warning: README Project Structure is out of sync (commit not blocked)" >&2
+  [ -n "$missing" ]  && sed 's/^/  in README, not tracked: /' <<<"$missing" >&2
+  [ -n "$unlisted" ] && sed 's/^/  tracked, not in README: /' <<<"$unlisted" >&2
+fi
+exit 0
