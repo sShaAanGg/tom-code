@@ -38,6 +38,7 @@ tom-code/
 │   └── tracesupport/
 │       └── SKILL.md        # `/tracesupport [chat|md] [ref]`: data/control flow walkthrough
 ├── AGENTS.md               # Project instructions (imported by CLAUDE.md)
+├── CHANGELOG.md            # User-facing changes per version
 ├── CLAUDE.md               # Claude Code project instructions
 └── README.md
 ```
