@@ -18,10 +18,9 @@ tom-code/
 ├── commands/
 │   └── status.md           # `/status` slash command: one-line repo status
 ├── hooks/
-│   └── hooks.json          # Hook config: PostToolUse on Write|Edit
+│   └── hooks.json          # Hook config: SessionStart (tutor on), PostToolUse on Write|Edit
 ├── scripts/
-│   ├── log-edit.sh         # Hook script: logs each Write/Edit payload
-│   └── toggle-mode.sh      # Toggle tutor/leetcode mode via tmp file
+│   └── toggle-mode.sh      # Toggle tutor/leetcode mode via flag file in ${CLAUDE_PLUGIN_ROOT}/.state/
 ├── skills/
 │   ├── tutor/
 │   │   └── SKILL.md        # `/tutor on|off`: Socratic tutor mode
@@ -51,8 +50,8 @@ The plugin is active only for that session. Repeat the flag to load several plug
 `claude --plugin-dir /path/to/tom-code --plugin-dir /path/to/other-plugin`.
 
 ## Features
-1. Disable the attribution trailer in the commit message, and tell the model to avoid extremely verbose commit messages to save tokens.  
-    a. Not stable. Sometimes the model still append the trail message
+1. Tell the model to avoid the attribution trailer and extremely verbose commit messages to save tokens.  
+    a. Prompt-only, so not guaranteed. For reliability, set `"attribution": {"commit": ""}` in `~/.claude/settings.json` yourself.
 2. **Tutor mode** (`/tutor on|off`, on by default) — Claude guides with questions instead of direct answers. After code edits, quizzes you about the change. ([Reference](https://www.youtube.com/watch?v=uXC7OuCas2Q))  
     a. PostToolUse hook fires a tutor-mode reminder after Write/Edit when tutor mode is active.  
     b. Sometimes I feel the mode is a bit too harsh to work in, but maybe it's actually helpful for learning.  
