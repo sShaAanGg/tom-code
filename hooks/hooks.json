@@ -26,7 +26,17 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/scripts/toggle-mode.sh\" tutor status && echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PostToolUse\",\"additionalContext\":\"[tutor-mode] Summarize this edit briefly, then ask the user 2-3 contextual questions about it before moving on.\"}}' || true"
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/scripts/tutor-quiz.sh\" record"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/scripts/tutor-quiz.sh\" stop"
           }
         ]
       }

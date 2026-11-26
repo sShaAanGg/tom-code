@@ -30,7 +30,7 @@ case "$ACTION" in
     ;;
   off)
     if [ "$MODE" = all ]; then
-      rm -f "${STATE_DIR}/claude-${SID}-"*-mode
+      rm -f "${STATE_DIR}/claude-${SID}-"*
     else
       rm -f "$FLAG"
       echo "${MODE} mode is now **off**."

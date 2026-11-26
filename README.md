@@ -22,9 +22,10 @@ tom-code/
 │   ├── commit-msg          # Git hook: strips Claude Co-Authored-By trailers
 │   └── pre-commit          # Git hook: warns when this README tree drifts from tracked files
 ├── hooks/
-│   └── hooks.json          # Hook config: SessionStart (tutor on), SessionEnd (clear flags), PostToolUse on Write|Edit
+│   └── hooks.json          # Hook config: SessionStart (tutor on), SessionEnd (clear flags), PostToolUse record, Stop quiz
 ├── scripts/
-│   └── toggle-mode.sh      # Per-session tutor/leetcode flags in ${CLAUDE_PLUGIN_ROOT}/.state/
+│   ├── toggle-mode.sh      # Per-session tutor/leetcode flags in ${CLAUDE_PLUGIN_ROOT}/.state/
+│   └── tutor-quiz.sh       # End-of-turn quiz: record edited files, block Stop once to quiz
 ├── skills/
 │   ├── tutor/
 │   │   └── SKILL.md        # `/tutor on|off`: Socratic tutor mode
@@ -68,7 +69,7 @@ The plugin is active only for that session. Repeat the flag to load several plug
     a. Prompt-only, so not guaranteed. For reliability, set `"attribution": {"commit": ""}` in `~/.claude/settings.json` yourself.  
     b. Hard guarantee for this repo: `git config core.hooksPath githooks` enables the `commit-msg` hook that deletes the trailer line.
 2. **Tutor mode** (`/tutor on|off`, on by default) — Claude guides with questions instead of direct answers. After code edits, quizzes you about the change. ([Reference](https://www.youtube.com/watch?v=uXC7OuCas2Q))  
-    a. PostToolUse hook fires a tutor-mode reminder after Write/Edit when tutor mode is active.  
+    a. Quizzes once per turn, not per edit: PostToolUse records edited files, the Stop hook blocks once to quiz on core logic (labels from `/changemap`). Non-edit turns (explanations) rely on the prompt rule only: it works well enough, and a hook would cost an extra model call every turn.  
     b. Sometimes I feel the mode is a bit too harsh to work in, but maybe it's actually helpful for learning.  
     c. This will likely cause you to spend MORE time & credits on the task, so use with caution.
 3. **Leetcode mode** (`/leetcode on|off`) — Progressive hints for algorithm problems. Inspired by [LeetCode](https://leetcode.com).
