@@ -13,7 +13,7 @@ tom-code/
 │   ├── marketplace.json    # Marketplace listing for `/plugin install`
 │   └── plugin.json         # Plugin manifest (name, version, author)
 ├── .claude/
-│   └── settings.json       # Project settings (default permission mode: acceptEdits)
+│   └── settings.json       # Project settings: acceptEdits mode, SessionStart sets core.hooksPath
 ├── agents/
 │   └── reviewer.md         # `reviewer` subagent: reviews uncommitted changes
 ├── commands/
@@ -40,6 +40,16 @@ tom-code/
 ├── CLAUDE.md               # Claude Code project instructions
 └── README.md
 ```
+
+## Development Setup
+
+After cloning, enable the repo's git hooks (`githooks/`):
+
+```
+git config core.hooksPath githooks
+```
+
+Opening this repo in Claude Code runs this automatically (SessionStart hook in `.claude/settings.json`).
 
 ## Usage
 
