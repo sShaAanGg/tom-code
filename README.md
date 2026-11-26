@@ -17,6 +17,8 @@ tom-code/
 │   └── reviewer.md         # `reviewer` subagent: reviews uncommitted changes
 ├── commands/
 │   └── status.md           # `/status` slash command: one-line repo status
+├── githooks/
+│   └── commit-msg          # Git hook: strips Claude Co-Authored-By trailers
 ├── hooks/
 │   └── hooks.json          # Hook config: SessionStart (tutor on), PostToolUse on Write|Edit
 ├── scripts/
@@ -51,7 +53,8 @@ The plugin is active only for that session. Repeat the flag to load several plug
 
 ## Features
 1. Tell the model to avoid the attribution trailer and extremely verbose commit messages to save tokens.  
-    a. Prompt-only, so not guaranteed. For reliability, set `"attribution": {"commit": ""}` in `~/.claude/settings.json` yourself.
+    a. Prompt-only, so not guaranteed. For reliability, set `"attribution": {"commit": ""}` in `~/.claude/settings.json` yourself.  
+    b. Hard guarantee for this repo: `git config core.hooksPath githooks` enables the `commit-msg` hook that deletes the trailer line.
 2. **Tutor mode** (`/tutor on|off`, on by default) — Claude guides with questions instead of direct answers. After code edits, quizzes you about the change. ([Reference](https://www.youtube.com/watch?v=uXC7OuCas2Q))  
     a. PostToolUse hook fires a tutor-mode reminder after Write/Edit when tutor mode is active.  
     b. Sometimes I feel the mode is a bit too harsh to work in, but maybe it's actually helpful for learning.  
